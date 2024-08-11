@@ -12,17 +12,17 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [guessResults, setGuessResults] = React.useState([]);
+  const [guesses, setGuesses] = React.useState([]);
 
   function handleAddNewGuess(guess) {
-    const nextGuessResults = [...guessResults, guess];
+    const nextGuesses = [...guesses, guess];
 
-    setGuessResults(nextGuessResults);
+    setGuesses(nextGuesses);
   }
 
   return (
     <>
-      <GuessResults guessResults={guessResults} />
+      <GuessResults guesses={guesses} />
       <GuessInput handleAddNewGuess={handleAddNewGuess} />
     </>
   );
