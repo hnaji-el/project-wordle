@@ -1,6 +1,7 @@
 import React from "react";
 
 import GuessInput from "../GuessInput";
+import GuessResults from "../GuessResults";
 
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
@@ -11,9 +12,18 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
+  const [guessResults, setGuessResults] = React.useState([]);
+
+  function handleAddNewGuess(guess) {
+    const nextGuessResults = [...guessResults, guess];
+
+    setGuessResults(nextGuessResults);
+  }
+
   return (
     <>
-      <GuessInput />
+      <GuessResults guessResults={guessResults} />
+      <GuessInput handleAddNewGuess={handleAddNewGuess} />
     </>
   );
 }

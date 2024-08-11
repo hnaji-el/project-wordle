@@ -1,13 +1,13 @@
 import React from "react";
 
-function GuessInput() {
-  const [guess, setGuess] = React.useState("");
+function GuessInput({ handleAddNewGuess }) {
+  const [tentativeGuess, setTentativeGuess] = React.useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.info({ guess });
-    setGuess("");
+    handleAddNewGuess(tentativeGuess);
+    setTentativeGuess("");
   }
 
   return (
@@ -20,8 +20,10 @@ function GuessInput() {
         maxLength={5}
         pattern="[a-zA-Z]{5}"
         title="5 letter word"
-        value={guess}
-        onChange={(event) => setGuess(event.target.value.toUpperCase())}
+        value={tentativeGuess}
+        onChange={(event) =>
+          setTentativeGuess(event.target.value.toUpperCase())
+        }
       />
     </form>
   );
