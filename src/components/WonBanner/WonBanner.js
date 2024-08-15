@@ -2,7 +2,7 @@ import React from "react";
 
 import Banner from "../Banner";
 
-function WonBanner({ numOfGuesses }) {
+function WonBanner({ numOfGuesses, handleGameInitialization }) {
   return (
     <Banner status="happy">
       <p>
@@ -12,6 +12,9 @@ function WonBanner({ numOfGuesses }) {
         </strong>
         .
       </p>
+      <button onClick={handleGameInitialization} className="restart-btn">
+        Restart
+      </button>
     </Banner>
   );
 }
